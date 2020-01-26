@@ -13,7 +13,7 @@
 ### Installation
 
 ``` sh
-- git clone https://github.com/devanshslnk/ClaimChain.git
+- git clone https://github.com/priyamshah112/Medicyl.git
 ```
 ``` sh
 - cd Medicyl/medicyl
