@@ -3,19 +3,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <% include D:\vkk\Medicyl\medicyl\views\partials\head %>
-</head>
+
+    <% include partials\head %>
 <style>
+html{
+  width:100%;
+
+}
+body {
+  font-family: 'Roboto', sans-serif;  width:100%;
+
+}
 .card {
 padding: 1rem;
 border: 1px solid black;
 margin: 1rem;
 }
 </style>
-<body class="container">
 
 <header>
-    <% include D:\vkk\Medicyl\medicyl\views\partials\header %>
+    <% include partials\header %>
 </header>
 <script>
 window.onload = function() {
@@ -73,7 +80,10 @@ apiResult.forEach((result, idx) => {
 
 
 </script>
+</head>
 <main>
+  
+<body>
     <div class="jumbotron">
         <h1>This is great</h1>
         <p>Welcome to templating using EJS</p>
@@ -98,7 +108,7 @@ apiResult.forEach((result, idx) => {
 </main>
 
 <footer>
-    <% include D:\vkk\Medicyl\medicyl\views\partials\footer %>
+    <% include partials\footer %>
 </footer>
 
 </body>

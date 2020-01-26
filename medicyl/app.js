@@ -5,6 +5,7 @@ const app=express();
 
 const signup=require("./controllers/signups");
 const temp=require("./controllers/temps");
+const add_record=require("./controllers/add_record");
 
 app.set('view engine','ejs');
 
@@ -19,6 +20,9 @@ app.get('/temp',(req,res)=>{
 });
 
 
+
+
+
 app.listen(3000,()=>{
     console.log("listening to PORT 3000");
 });
@@ -26,3 +30,4 @@ app.listen(3000,()=>{
 
 
 signup(app);
+add_record(app);
