@@ -5,25 +5,96 @@
 <head>
     <% include D:\vkk\Medicyl\medicyl\views\partials\head %>
 </head>
+<style>
+.card {
+padding: 1rem;
+border: 1px solid black;
+margin: 1rem;
+}
+</style>
 <body class="container">
 
 <header>
     <% include D:\vkk\Medicyl\medicyl\views\partials\header %>
 </header>
+<script>
+window.onload = function() {
 
+
+const apiResult = [{
+  title: "title1",
+  description: "desc1",
+  output: "out1"
+}, {
+  title: "title2",
+  description: "desc2",
+  output: "out2"
+}, {
+  title: "title3",
+  description: "desc3",
+  output: "out3"
+}];
+
+
+const container = document.getElementById('accordion');
+
+apiResult.forEach((result, idx) => {
+  // Create card element
+  const card = document.createElement('div');
+  card.classList = 'card-body';
+
+  // Construct card content
+  const content = `
+    <div class="card">
+    <div class="card-header" id="heading-${idx}">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${idx}" aria-expanded="true" aria-controls="collapse-${idx}">
+
+                </button>
+      </h5>
+    </div>
+
+    <div id="collapse-${idx}" class="collapse show" aria-labelledby="heading-${idx}" data-parent="#accordion">
+      <div class="card-body">
+
+        <h5>${result.title}</h5>
+        <p>${result.description}</p>
+        <p>${result.output}</p>
+        ...
+      </div>
+    </div>
+  </div>
+  `;
+
+  // Append newyly created card element to the container
+  container.innerHTML += content;
+})
+}
+
+
+</script>
 <main>
     <div class="jumbotron">
         <h1>This is great</h1>
         <p>Welcome to templating using EJS</p>
     </div>
     <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
-  <div class="card-body text-success">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Footer</div>
-</div>
+      <div class="card-header bg-transparent border-success">
+        Header
+      </div>
+      <div class="card-body text-success">
+        <h5 class="card-title">Success card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    
+      <div class="card-footer bg-transparent border-success">
+        Footer
+      </div>
+    </div>
+    <div id="accordion">
+  
+    </div>
+    
 </main>
 
 <footer>
