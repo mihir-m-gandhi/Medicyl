@@ -1,0 +1,20 @@
+{
+  "name": "medicyl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "dotenv": "^7.0.0",
+    "ejs": "^2.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
