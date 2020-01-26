@@ -24,6 +24,9 @@ margin: 1rem;
 <header>
     <% include partials\header %>
 </header>
+
+
+
 <script>
 window.onload = function() {
 
@@ -31,15 +34,18 @@ window.onload = function() {
 const apiResult = [{
   title: "title1",
   description: "desc1",
-  output: "out1"
+  output: "out1",
+  href:"/1"
 }, {
   title: "title2",
   description: "desc2",
-  output: "out2"
+  output: "out2",
+  href:"/2"
 }, {
   title: "title3",
   description: "desc3",
-  output: "out3"
+  output: "out3",
+  href:"/3"
 }];
 
 
@@ -52,12 +58,14 @@ apiResult.forEach((result, idx) => {
 
   // Construct card content
   const content = `
-    <div class="card">
-    <div class="card-header" id="heading-${idx}">
+    <!--div class="card border-success mb-3" style="max-width: 18rem;"-->
+    <div class="card border-success mb-3" >
+    <div class="card-header bg-transparent border-success" id="heading-${idx}">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${idx}" aria-expanded="true" aria-controls="collapse-${idx}">
-
-                </button>
+          >
+        </button>
+        <a href=${result.href}>Header</a>
       </h5>
     </div>
 
@@ -85,10 +93,17 @@ apiResult.forEach((result, idx) => {
   
 <body>
     <div class="jumbotron">
-        <h1>This is great</h1>
-        <p>Welcome to templating using EJS</p>
+        <h1 style="text-align:center">Know Your Past Record ??</h1>
+        <br>
+        <form class="justify-content-center my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search Medical Record" aria-label="Search">
+          <br>
+          <div class="text-center"> 
+          <button class="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button>
+          </div
+        </form>
     </div>
-    <div class="card border-success mb-3" style="max-width: 18rem;">
+    <!--div class="card border-success mb-3" style="max-width: 18rem;">
       <div class="card-header bg-transparent border-success">
         Header
       </div>
@@ -100,9 +115,11 @@ apiResult.forEach((result, idx) => {
       <div class="card-footer bg-transparent border-success">
         Footer
       </div>
-    </div>
+    </div-->
+    <div id='container'>
     <div id="accordion">
   
+    </div>
     </div>
     
 </main>
