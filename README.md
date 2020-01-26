@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="" rel="noopener">
-    <img max-width=300px src="./assets/images/logocc.png" alt="ClaimChain-logo"></img></a>
+    <img max-width=300px src="./assets/images/logocc.png" alt="Medicyl-logo"></img></a>
 </p>
 
 <h3 align="center">Family Tree on Blockchain</h3>
