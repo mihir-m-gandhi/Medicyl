@@ -16,6 +16,11 @@ const path = require('path');
 const imagesToPdf = require("images-to-pdf")
 
 
+var fs =require('file-system');
+
+
+
+
 var fl_names=[];
 
 
@@ -43,24 +48,26 @@ module.exports = (app)=>{
     });
 
     app.post("/uploadMultipleFile",upload.array("myFiles",12),(req,res,next)=>{
+        
+        fs.mkdirSync(path.join(__dirname,'..','uploads','username'))
         const files=req.files;
         if (!files){
             const error= new Error("Please Choose Files");
             error.httpStstusCode = 400
             return next(error);
-        }
+        }else{
+            
+            files.forEach(element => {
+                var fl_string=  path.join(__dirname,'..','uploads','username',element['filename']);
+                console.log(fl_string);
+                fl_names.push(fl_string);
 
-        files.forEach(element => {
-          var fl_string=  path.join(__dirname,'..','\\uploads\\',element['filename']);
-          console.log(fl_string);
-          fl_names.push(fl_string);
-        });
-        // console.log("File Names after path join :",fl_names);
+            });
+            
+             up(fl_names);
+        }
         
-         up(fl_names);
         return res.redirect("/dashboard");
-        
-        
     
     })
 
@@ -68,8 +75,11 @@ module.exports = (app)=>{
 
 
 
-async function up(fl_names){
-    console.log("in async");
-    await imagesToPdf(fl_names, path.join(__dirname,"..","uploads","combined.pdf"));
+async function up(fl_names){    
+    fs.mkdirSync(path.join(__dirname,'..','downloads','username'));
+    await imagesToPdf(fl_names, path.join(__dirname,"..","downloads","username","combined.pdf"));
+    
+    fs.rmdirSync(path.join(__dirname,'..','uploads','username'));
+
 }
 
