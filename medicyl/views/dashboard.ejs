@@ -46,7 +46,24 @@ const apiResult = [{
   description: "desc3",
   output: "out3",
   href:"/3"
-}];
+},
+{
+  title: "title1",
+  description: "desc1",
+  output: "out1",
+  href:"/1"
+}, {
+  title: "title2",
+  description: "desc2",
+  output: "out2",
+  href:"/2"
+}, {
+  title: "title3",
+  description: "desc3",
+  output: "out3",
+  href:"/3"
+}
+];
 
 
 const container = document.getElementById('accordion');
@@ -58,9 +75,9 @@ apiResult.forEach((result, idx) => {
 
   // Construct card content
   const content = `
-    <!--div class="card border-success mb-3" style="max-width: 18rem;"-->
-    <div class="card border-success mb-3" >
-    <div class="card-header bg-transparent border-success" id="heading-${idx}">
+    
+    <div class="card col-md-3 border-primary"  >
+    <div class="card-header bg-transparent border-primary" id="heading-${idx}">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${idx}" aria-expanded="true" aria-controls="collapse-${idx}">
           >
@@ -92,14 +109,14 @@ apiResult.forEach((result, idx) => {
 <main>
   
 <body>
-    <div class="jumbotron">
-        <h1 style="text-align:center">Know Your Past Record ??</h1>
+    <div class="jumbotron" style="background: -webkit-linear-gradient(left, #3931af, #00c6ff);">
+        <h1 class=" text-light" style="text-align:center">Know Your Past Record ??</h1>
         <br>
         <form class="justify-content-center my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search Medical Record" aria-label="Search">
+          <input class="form-control mr-sm-2 center" style="width: 50%;" type="search" placeholder="Search Medical Record" aria-label="Search">
           <br>
           <div class="text-center"> 
-          <button class="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button>
+          <button class="btn btn-outline-light my-2 my-sm-0"  type="submit">Search</button>
           </div
         </form>
     </div>
@@ -116,10 +133,11 @@ apiResult.forEach((result, idx) => {
         Footer
       </div>
     </div-->
-    <div id='container'>
-    <div id="accordion">
-  
-    </div>
+    <div class='container offset-md-2 row ' id="accordion">
+    <!-- <div id="accordion" class="row container center">
+      
+    </div> -->
+    
     </div>
     
 </main>
