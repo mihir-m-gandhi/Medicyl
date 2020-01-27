@@ -11,14 +11,13 @@ const mongoose=require('mongoose');
 const signup=require("./controllers/signups");
 const dashboards=require("./controllers/dashboards");
 const add_record=require("./controllers/add_record");
+const upfile=require("./controllers/uploadMultipleFile");
 
 //Mongo connection
 mongoose.connect('mongodb://admin:Priyam123@ds123444.mlab.com:23444/medicyl', {useNewUrlParser: true});
 
 // Start
 const app=express();
-
-
 
 app.set('view engine','ejs');
 
@@ -27,7 +26,6 @@ app.use(express.static('./public'));
 app.get('/',(req,res)=>{
     res.render("index",{message:null});
 });
-
 
 
 
@@ -40,3 +38,4 @@ app.listen(3000,()=>{
 signup(app);
 dashboards(app);
 add_record(app);
+upfile(app);

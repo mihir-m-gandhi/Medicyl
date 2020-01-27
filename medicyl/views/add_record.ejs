@@ -6,6 +6,7 @@
 
 <title>Add Record</title>
 
+<!-- <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src 'self' data:; default-src 'self' http://127.0.0.1:3000/"> -->
 
 
 <style>
@@ -151,6 +152,13 @@ body {
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-group">
+                                                <label class="text-uppercase small">Name</label>
+                                                <input name="first_name" type="text" disabled="true" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label class="text-uppercase small">Document Type</label>
                                                 <select class="form-control" name="type" required="true">
                                                     <option class="hidden"  selected disabled>Document Type</option>
                                                     <option value="patient">Patient</option>
@@ -161,15 +169,16 @@ body {
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <div class="file-upload-wrapper">
-                                                <input type="file" id="input-file-now-custom-1" class="file-upload" data-default-file="https://mdbootstrap.com/img/Photos/Others/images/89.jpg" />
-                                              </div>
-                                        </div>
                                     </div>
                                     <div class="row">
-                                        <textarea class="form-control ml-3" placeholder="Enter Description of Report" rows="2" style="width:96%"></textarea>
+                                        <div class="col">
+                                            <textarea class="form-control ml-3" placeholder="Enter Description of Report" rows="2" style="width:96%"></textarea>
+
+                                        </div>
                                     </div>
+                                    
+                                    <br/>
+                                    
                                     <br><br>
                                     <!-- <h6 class="auth__form_subtitle">Spouse's Details</h6>
                                     <hr/>
@@ -222,6 +231,21 @@ body {
                                         Add
                                     </button>
                                     </div>
+                                </form>
+
+                                <form action="/uploadMultipleFile"  enctype="multipart/form-data" method="post">
+                                    
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="file-upload-wrapper">
+                                            <input type="file" id="input-file-now-custom-1" class="file-upload" name="myFiles" accept="image/*" multiple/>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <button name="submit" class="btn btn-primary btn-lg btn-block">
+                                        Upload Docs
+                                    </button>
                                 </form>
                                 
                     </div>
