@@ -13,6 +13,12 @@ app.use(bodyParser.urlencoded({extended:true}))
 const multer=require('multer');
 const path = require('path');
 
+const imagesToPdf = require("images-to-pdf")
+
+
+var fl_names=[];
+
+
 
 
 module.exports = (app)=>{
@@ -22,7 +28,8 @@ module.exports = (app)=>{
             cb(null,'uploads')
         },
         filename: function(req,file,cb){
-            cb(null,file.fieldname+'-'+Date.now()+path.extname(file.originalname))
+            fl=file.fieldname+'-'+Date.now()+path.extname(file.originalname)
+            cb(null,fl)
         }
     })
     
@@ -42,12 +49,27 @@ module.exports = (app)=>{
             error.httpStstusCode = 400
             return next(error);
         }
-        console.log(files);
- 
+
+        files.forEach(element => {
+          var fl_string=  path.join(__dirname,'..','\\uploads\\',element['filename']);
+          console.log(fl_string);
+          fl_names.push(fl_string);
+        });
+        // console.log("File Names after path join :",fl_names);
+        
+         up(fl_names);
         return res.redirect("/dashboard");
         
-    })
+        
     
+    })
+
 }
 
+
+
+async function up(fl_names){
+    console.log("in async");
+    await imagesToPdf(fl_names, path.join(__dirname,"..","uploads","combined.pdf"));
+}
 
