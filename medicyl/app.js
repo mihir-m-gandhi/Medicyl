@@ -13,6 +13,7 @@ const secret = "KVNwPVFLdv9HHg9MwEgt";
 
 // Add routes here
 const signup=require("./controllers/signups");
+const get_doc=require("./controllers/get_doc");
 const dashboards=require("./controllers/dashboards");
 const add_record=require("./controllers/add_record");
 const add_doctor=require("./controllers/add_doctor");
@@ -128,9 +129,13 @@ app.post("/",async (req,res)=>{
                 console.log(users)
                 if (users != null){
                     req.session.usertype=users.usertype;
-                    
+                    req.session.username=username;
+                    req.session.secretKey=mypstr1;
                     console.log("Session UserType", req.session.usertype);
-
+                    console.log("Session started");
+                    console.log("Session Out Username", req.session.username);
+                    console.log("Session Out Username", req.session.usertype);
+                    return res.redirect("/dashboard");
                 }
                  
             }
@@ -144,21 +149,26 @@ app.post("/",async (req,res)=>{
                     console.log(doctors)
                     if (doctors != null){
                         req.session.usertype=doctors.usertype;
-                        
+                        req.session.username=doctors.username;
+                        req.session.secretKey=doctors.mypstr1;
+                        req.session.patientlist=doctors.patientlist;
+                        console.log("Session started");
                         console.log("Session UserType", req.session.usertype);
-
+                        console.log("Session Out Username", req.session.username);
+                        console.log("Session Out Username", req.session.usertype);
+                        return res.redirect("/doctor_doc");
                     }
                 }
             });
 
-        req.session.username=username;
-        req.session.secretKey=mypstr1;
-        
+
+        console.log("Session Out Username", req.session.username);
+        console.log("Session Out Username", req.session.usertype);
+ 
+    
         console.log("Session started");
         
         console.log("Session Out Username", req.session.username);
-        
-        return res.redirect("/dashboard");
 
 
     }else{
@@ -176,7 +186,7 @@ app.listen(3000,()=>{
 });
 
 // Register Apps
-
+get_doc(app);
 signup(app);
 dashboards(app);
 add_record(app);
