@@ -50,18 +50,17 @@ margin: 1rem;
         </form>
     </div>
 
-<h1><%=patientlist[0] %></h1>
-
-<div class="container row">
+<div align="center"; width:100%;>
+<div class="container row";>
     <% for(var i=0;i<patientlist.length;i++){%>
-      <div class="card border-success mb-3" style="max-width: 18rem;">
+      <div class="card border-success mb-3" style="max-width: 18rem;  align:center;">
       <div class="card-header bg-transparent border-success">
             <div class="card-body text-success">
                 <form class="justify-content-center my-2 my-lg-0" action="get_doc" method="POST">
                   <input name="yes" class="form-control mr-sm-2 center" type="search" placeholder="Search Patient Record" aria-label="Search" value=<%= patientlist[i] %> >
                   <br>
                   <div class="text-center"> 
-                  <button class="btn btn-outline-light my-2 my-sm-0"  type="submit">View more</button>
+                  <button class="btn btn-primary"  type="submit">View more</button>
                   </div>
                 </form>
             </div>
@@ -70,9 +69,9 @@ margin: 1rem;
     <%  } %>
          
 </div>
-    <div class="card border-success mb-3" style="max-width: 18rem;">
+</div>
+<!--div class="card border-success mb-3" style="max-width: 18rem;">
       <div class="card-header bg-transparent border-success">
-        
       </div>
       <div class="card-body text-success">
         <h5 class="card-title">Document Name</h5>
@@ -85,8 +84,7 @@ margin: 1rem;
       <div class="card-footer bg-transparent border-success">
         Date:29/01/2020
       </div>
-    </div>
-    
+    </div>->    
     
 </main>
 

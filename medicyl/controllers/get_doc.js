@@ -51,7 +51,7 @@ module.exports = User;
 
 module.exports=(app)=>{
 
-    app.get("/get_doc",(req,res)=>{
+    app.get("get_doc",(req,res)=>{
         res.render("get_doc",{message:null});
         
     });
@@ -65,7 +65,7 @@ module.exports=(app)=>{
         console.log(fullname);
         console.log("efednkjdnkjdnjdnjkjknnsd");
 
-        return res.render("/get_doc",{fullname:"fullname"})
+        return res.render("get_doc",{fullname:fullname})
 
         
     });
