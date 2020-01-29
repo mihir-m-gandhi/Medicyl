@@ -78,8 +78,7 @@ module.exports=(app)=>{
         const myData = {
             username,full_name,contact,dob,age,gender,u_type,height,weight,bloodgroup,criticalinfo
         }
-
-         
+        
         var data = User(myData);
 
         data.save(function(err){
