@@ -11,17 +11,6 @@
     $('#doctors_table').DataTable();
 }
 );
-
-mongoose.connect("mongodb://Priyam112:Priyam123@ds123444.mlab.com:23444/medicyl",{
-    useNewUrlParser: true 
-}, function(error){
-    if(error){
-        console.log(error);
-    }
-    else{
-        console.log("Connected to the database");
-    }
-});
 </script>
 
 <title>Your Doctors</title>
