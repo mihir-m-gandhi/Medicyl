@@ -149,60 +149,64 @@
         <div class="col-md-8 register-right">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading">Signup | Medicyl</h3>
+                    <h3 class="register-heading">Signup as Doctor | Medicyl</h3>
                     <form method="POST">
                         <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Full Name *" name="full_name" required="true"/>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="username">Username</label>
+                                  <input type="text" class="form-control" id="username" placeholder="username">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Contact No. *" name="contact" required="true"/>
+                                <div class="form-group col-md-6">
+                                  <label for="fullname">Full Name</label>
+                                  <input type="text" class="form-control" id="fullname" placeholder="Full Name">
                                 </div>
-                                <div class="form-group mt-4">
-                                    <div class="maxl">
-                                        <label class="radio inline"> 
-                                            <span>Gender</span>
-                                            <input class="ml-3"  value="male" type="radio" name="gender" value="male" checked>
-                                            <span> Male </span> 
-                                        </label>
-                                        <label class="radio inline"> 
-                                            <input class="ml-3"  value="female" type="radio" name="gender" value="female">
-                                            <span>Female </span> 
-                                        </label>
+                              </div>
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="gender">Gender</label>
+                                  <div>
+                                    <label class="radio inline" >
+                                        <input class="ml-3"  value="male" type="radio" name="gender" value="male" checked>
+                                        <span> Male </span> 
+                                    </label>
+                                    <label class="radio inline"> 
+                                        <input class="ml-3"  value="female" type="radio" name="gender" value="female">
+                                        <span>Female </span> 
+                                    </label>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" name="password" class="form-control" placeholder="Password *" required="true"/>
+                                <div class="form-group col-md-6">
+                                  <label for="inputPassword4">Password</label>
+                                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
                                 </div>
-                                
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Username *" name="uname" required="true"/>
+                              </div>
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="contact">Contact No</label>
+                                  <input type="text" class="form-control" id="contact">
                                 </div>
-                                <div class="form-group">
-                                    <form class="form-inline" id="sandbox-container">
-                                        <label for="check-in">DOB *</label>
-                                        <input class="ml-3 form-control datepicker" type="date" id="cid" name="dob" class="input-append date" required="true" />
-                                    </form>
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control" name="u_type" required="true">
+                                <div class="form-group col-md-6">
+                                  <label for="inputState">Type</label>
+                                  <select id="inputState" class="form-control">
                                         <option class="hidden"  selected disabled>Please select your type</option>
-                                        <option value="patient">Patient</option>
                                         <option value="doctor">Doctor</option>
                                         <option value="radiologist">Radiologist</option>
                                         <option value="researcher">Researcher</option>
                                         <option value="pharmacist">Pharmacist</option>
-                                    </select>
+                                  </select>
                                 </div>
-                                
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Confirm Password *" name="cnf_password" required="true"/>
+                              </div>
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="inputEmail4">Email</label>
+                                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
                                 </div>
-                                <input type="submit" class="btnRegister" />
-                            </div>
+                                <div class="form-group col-md-6">
+                                  <label for="inputPassword4">Password</label>
+                                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                </div>
+                              </div>
                         </div>
                     </form>
                 </div>
