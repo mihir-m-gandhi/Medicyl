@@ -4,6 +4,7 @@ require("dotenv").config();
 const ipfsAPI = require('ipfs-api');
 const fs = require('fs');
 const express=require("express");
+const session=require("express-session");
 const bodyParser = require('body-parser');
 const app=express();
 
@@ -86,12 +87,13 @@ module.exports = (app)=>{
             }
             else{
             var name=req.body.name;
+            var username=req.session.username;
             var type=req.body.type;
             var description=req.body.description;
             var date=req.body.date;
             
             const myData = {
-                name,type,description,date
+                username,name,type,description,date
             }
             
             var data = Document(myData);

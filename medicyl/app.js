@@ -142,7 +142,6 @@ app.post("/",async (req,res)=>{
                 }else{
                     console.log("SEARCH Doctor RESULTS");
                     console.log(doctors)
-                    typesss=doctors.usertype
                     if (doctors != null){
                         req.session.usertype=doctors.usertype;
                         
