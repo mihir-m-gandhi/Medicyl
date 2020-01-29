@@ -132,6 +132,7 @@ body {
       <form class="auth__form" autocomplete="off" method="POST">
         <div class="auth__form_body">
           <h3 class="auth__form_title">Sign in</h3>
+          <p align="center" style="color: red;"><%= message %></p>
           <div>
             <div class="form-group">
               <label class="text-uppercase small">Username</label>
@@ -139,7 +140,7 @@ body {
             </div>
             <div class="form-group">
               <label class="text-uppercase small">Password</label>
-              <input type="password" name="contract_address" class="form-control" placeholder="Enter Password">
+              <input type="password" name="password" class="form-control" placeholder="Enter Password">
             </div>
           </div>
         </div>
@@ -148,6 +149,7 @@ body {
             LOGIN
           </button>
         </div>
+
       </form>
       <div class="container-fluid">
       <hr/>
