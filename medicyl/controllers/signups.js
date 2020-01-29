@@ -7,6 +7,9 @@ const session=require("express-session");
 const createIdentity = require("./create_identity");
 
 
+const acc_abi=require("../contracts/accounts").acc_abi;
+const acc_address=require("../contracts/accounts").acc_address;
+
 
 
 // const abi=require("../family_tree_details").abi;
