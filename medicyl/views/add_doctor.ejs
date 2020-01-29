@@ -9,7 +9,19 @@
 <script type="text/javascript">
     $(document).ready( function () {
     $('#doctors_table').DataTable();
-} );
+}
+);
+
+mongoose.connect("mongodb://Priyam112:Priyam123@ds123444.mlab.com:23444/medicyl",{
+    useNewUrlParser: true 
+}, function(error){
+    if(error){
+        console.log(error);
+    }
+    else{
+        console.log("Connected to the database");
+    }
+});
 </script>
 
 <title>Your Doctors</title>
@@ -153,7 +165,7 @@ body {
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label class="text-uppercase small">Search for Doctor</label>
-                                                    <input name="search_doctor" type="text" value="Enter username of doctor" class="form-control">
+                                                    <input name="search_doctor" type="text" value="Enter username of doctor" class="form-control" onclick="this.value=''">
                                                 </div>
                                             </div>
                                             <div class="auth__form_actions">
