@@ -164,11 +164,6 @@ app.post("/",async (req,res)=>{
     }else{
         res.render("index",{message:"Incorrect Password"});
     }
-
-
-
-
-
     
 });
 

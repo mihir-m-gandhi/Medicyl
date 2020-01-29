@@ -21,7 +21,7 @@ module.exports=(app)=>{
                 console.log("SEARCH RESULTS");
                 console.log(docs)
 
-                res.render("dashboard",{docList:docs});                 
+                res.render("dashboard",{DocList:docs});                 
             }
         });
 
