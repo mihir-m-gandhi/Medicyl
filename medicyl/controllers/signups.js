@@ -17,25 +17,30 @@ const createIdentity = require("./create_identity");
 require("dotenv").config();
 
 
-const mongoose=require('mongoose');
+// const mongoose=require('mongoose');
 
 
-var userSchema = new mongoose.Schema({
-    username: String,
-    fullname: String,
-    contact: String,
-    dob: String,
-    age: String,
-    gender: String,
-    usertype: String,
-    height: String,
-    weight: String,
-    bloodgroup: String,
-    criticalinfo: String
-})
+// var userSchema = new mongoose.Schema({
+//     username: String,
+//     fullname: String,
+//     contact: String,
+//     dob: String,
+//     age: String,
+//     gender: String,
+//     usertype: String,
+//     height: String,
+//     weight: String,
+//     bloodgroup: String,
+//     criticalinfo: String
+// })
 
 
-var User = mongoose.model("User", userSchema);
+// var User = mongoose.model("User", userSchema);
+
+var mongoose = require('mongoose');
+var User = require('./user_model.js');
+
+// mongoose.connect('mongodb://localhost/event-db');
 
 module.exports = User;
 

@@ -119,7 +119,6 @@ body {
                             <form class="auth__form mt-5" autocomplete="off" method="POST">
                                     <div class="auth__form_body">
                                     <h3 class="auth__form_title">YOUR DOCTORS</h3>
-                                    <!-- <p><%= message %></p> -->
                                     <table id="doctors_table" class="display" style="width:100%">
                                         <thead>
                                             <tr>
@@ -130,7 +129,7 @@ body {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td>Dr. Tiger Nixon</td>
                                                 <td>General Physicist</td>
                                                 <td>Fortis, Vashi</td>
@@ -141,14 +140,21 @@ body {
                                                 <td>Skin Specialist</td>
                                                 <td>Leelavati</td>
                                                 <td>087654321</td>
+                                            </tr> -->
+                                        <% for(var i=0;i<userList.length;i++){
+                                            if(i<2){ %>
+                                            <tr>
+                                                <td><%= userList[i].username %></td>
+                                                <td><%= userList[i].username %></td>
+                                                <td><%= userList[i].username %></td>
+                                                <td><%= userList[i].username %></td>
                                             </tr>
-                                            
+                                        <% } } %>
                                         </tbody>
                                     </table>
                                     <br><br>
                                     <h3 class="auth__form_title">ADD DOCTOR</h3>
                                     <div>
-                                       <!-- <h6 class="auth__form_subtitle">Your Details</h6> -->
                                        <hr/>
                                         <div class="row">
                                             <div class="col">
@@ -199,7 +205,7 @@ body {
         </div>
     </section>
 </body>
-<script>
+<script text="javascript">
     
 </script>
 </html>
