@@ -42,8 +42,8 @@ module.exports = User;
 
 module.exports=(app)=>{
 
-    app.get("/signup",(req,res)=>{
-        res.render("signup",{message:null});
+    app.get("/signup_doctor",(req,res)=>{
+        res.render("signup_doctor",{message:null});
         
     });
 
