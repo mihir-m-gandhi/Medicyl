@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var userSchema = new Schema({
+var doctorSchema = new Schema({
     username: String,
     fullname: String,
     contact: String,
@@ -9,11 +9,10 @@ var userSchema = new Schema({
     age: String,
     gender: String,
     usertype: String,
-    height: String,
-    weight: String,
-    bloodgroup: String,
-    criticalinfo: String,
-    doctorlist: Array
+    specialization: String,
+    experience: String,
+    hospital: String,
+    patientlist: Array
 })
 
-module.exports = mongoose.model('users', userSchema); 
+module.exports = mongoose.model('doctors', doctorSchema); 

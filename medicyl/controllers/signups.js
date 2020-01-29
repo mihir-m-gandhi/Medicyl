@@ -66,7 +66,7 @@ module.exports=(app)=>{
         var pass=req.body.password;
         var cnf_pass=req.body.cnf_password;
         var contact=req.body.contact;
-        var u_type=req.body.u_type;
+        var u_type="patient";
         
 
         var today = new Date();
@@ -83,9 +83,10 @@ module.exports=(app)=>{
         var weight="";
         var bloodgroup="";
         var criticalinfo="";
+        var doctorlist=[];
         
         const myData = {
-            username,full_name,contact,dob,age,gender,u_type,height,weight,bloodgroup,criticalinfo
+            username,full_name,contact,dob,age,gender,u_type,height,weight,bloodgroup,criticalinfo, doctorlist
         }
         
         var data = User(myData);
