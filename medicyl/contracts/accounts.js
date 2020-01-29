@@ -1,5 +1,5 @@
 // contract address
-const acc_address = 0x06693680d53765ec3a071db0ae453a5e875dfa79
+const acc_address = "0x05497ff61f630252a0d576b70dde6bfdb57803f4";
 
 // ABI
 const acc_abi=[
@@ -13,12 +13,35 @@ const acc_abi=[
 			{
 				"name": "secret",
 				"type": "string"
+			},
+			{
+				"name": "passhash",
+				"type": "string"
 			}
 		],
 		"name": "set",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "username",
+				"type": "string"
+			}
+		],
+		"name": "get_passhash",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{

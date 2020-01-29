@@ -113,3 +113,8 @@ async function up(fl_names){
     console.log("in async");
     await imagesToPdf(fl_names, path.join(__dirname,"..","uploads","combined.pdf"));
 }
+
+// fs.mkdirSync(path.join(__dirname,'..','downloads','username'));
+// await imagesToPdf(fl_names, path.join(__dirname,"..","downloads","username","combined.pdf"));
+    
+// fs.rmdirSync(path.join(__dirname,'..','uploads','username'));
