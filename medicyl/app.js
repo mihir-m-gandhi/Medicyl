@@ -15,6 +15,7 @@ const dashboards=require("./controllers/dashboards");
 const add_record=require("./controllers/add_record");
 const add_doctor=require("./controllers/add_doctor");
 const profile=require("./controllers/profile");
+const signup_doctor=require("./controllers/signups_doctor");
 const upfile=require("./controllers/uploadMultipleFile");
 
 // Contract variables
@@ -69,3 +70,4 @@ add_record(app);
 add_doctor(app);
 profile(app);
 upfile(app);
+signup_doctor(app);
