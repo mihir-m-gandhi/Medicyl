@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <% include partials/head %>
+
+<title>Profile</title>
+
+<!-- <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src 'self' data:; default-src 'self' http://127.0.0.1:3000/"> -->
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+html{
+  width:100%;
+  height:100%;
+
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  width:100%;
+  height:100%;
+
+}
+.skewedbox{
+    background-image: linear-gradient(#3280e4, #584dc3);
+    transform:skew(0,-10deg)translateY(-150px);
+    width: 100%;
+}
+.btn:hover{
+    color:#3280e4;
+    border-color:#3280e4;
+    box-shadow: 5px 10px #3280e4;
+    transition-duration: .5s;
+}
+
+.nav-bar{
+    transform: skew(0,10deg)translateY(150px) ;
+}
+.container-form{
+    transform:skew(0,10deg)translateY(150px);
+    width: 100%;
+}
+.auth{
+  width:100%;
+}
+.auth__body {
+    width:100%;
+}
+.auth__form {
+  min-width: 50%;
+  max-width: 340px;
+  margin: auto;
+  padding: 0 10px;
+  position: relative;
+  z-index: 9;
+}
+.auth__form_body {
+  padding: 0.7rem 1.5rem 35px;
+  border-radius: 0.5rem;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+.auth__form_title {
+  font-size: 1.3rem;
+  text-align: center;
+  color:#584dc3;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.auth__form_subtitle {
+  font-size: 1.1rem;
+  text-align: center;
+  color:#3280e4;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.auth__form_actions {
+  text-align: center;
+  padding: 0 2rem;
+  margin-top: -25px;
+}
+.auth__form_actions .btn {
+  border-radius: 30px;
+  box-shadow: 0 2px 12px rgba(50, 128, 228, 0.5);
+    transition-duration: .5s;
+}
+
+.auth__form_actions .btn:hover{
+    background: white;
+    color:#584dc3;
+    transition-duration: .5s;
+    box-shadow: 0 2px 12px rgba(50, 128, 228, 0.5)
+}
+
+    </style>
+</head>
+<body>
+    
+    <section class="skewedbox">
+        <div class="nav-bar">
+            
+        <% include partials/header %>
+        </div>
+        <div class="container-fluid container-form">
+    
+            
+            <div class="auth">
+                <div class="auth__body">
+                    <div class="row">
+                            <form class="auth__form mt-5" autocomplete="off" method="POST">
+                                    <div class="auth__form_body">
+                                    <h3 class="auth__form_title">Hello Mihir!</h3>
+                                    <!-- <p><%= message %></p> -->
+                                    <div>
+                                       <!-- <h6 class="auth__form_subtitle">Your Details</h6> -->
+                                       <hr/>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="text-uppercase small">Name</label>
+                                                    <input name="first_name" type="text" disabled="true" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="text-uppercase small">DOB</label>
+                                                    <input name="last_name" type="date" disabled="true" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="text-uppercase small">Gender</label>
+                                                    <input name="gender" type="text" class="form-control" value="Male" disabled="true">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="text-uppercase small">Contact No.</label>
+                                                    <input name="contact" type="text" class="form-control" value="0000000000" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="text-uppercase small">Height(cm)</label>
+                                                    <input name="height" type="text" class="form-control" value="170">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="text-uppercase small">Weight(kg)</label>
+                                                    <input name="weight" type="text" class="form-control" value="80">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="text-uppercase small">Blood Group</label>
+                                                    <input name="blood" type="text" class="form-control" value="O+">
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="text-uppercase small">Critical Information</label>
+                                                    <input name="critical" type="text" class="form-control" value="Allergic to dust">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <br><br>
+                                    
+                                    <div class="auth__form_actions col-md-4 offset-md-4">
+                                    <button name="submit" class="btn btn-primary btn-lg btn-block">
+                                        Save
+                                    </button>
+                                    </div>
+                                </form>
+                                
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
