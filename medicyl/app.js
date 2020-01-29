@@ -13,6 +13,8 @@ const mongoose=require('mongoose');
 const signup=require("./controllers/signups");
 const dashboards=require("./controllers/dashboards");
 const add_record=require("./controllers/add_record");
+const add_doctor=require("./controllers/add_doctor");
+const profile=require("./controllers/profile");
 const upfile=require("./controllers/uploadMultipleFile");
 
 // Contract variables
@@ -64,4 +66,6 @@ app.listen(3000,()=>{
 signup(app);
 dashboards(app);
 add_record(app);
+add_doctor(app);
+profile(app);
 upfile(app);
