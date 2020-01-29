@@ -61,14 +61,14 @@ module.exports=(app)=>{
     
     app.post("/signup",async (req,res)=>{
 
-        var full_name=req.body.full_name;
+        var fullname=req.body.full_name;
         var username=req.body.uname;
         var dob=req.body.dob;
         var gender=req.body.gender;
         var password=req.body.password;
         var cnf_pass=req.body.cnf_password;
         var contact=req.body.contact;
-        var u_type="patient";
+        const usertype="patient";
         
 
         var today = new Date();
@@ -84,22 +84,17 @@ module.exports=(app)=>{
         var bloodgroup="";
         var criticalinfo="";
         var doctorlist=[];
-        
-        const myData = {
-            username,full_name,contact,dob,age,gender,u_type,height,weight,bloodgroup,criticalinfo, doctorlist
-        }
-        
-        var data = User(myData);
 
-        data.save(function(err){
-            if (err){
-                console.log("Error in submission");
-            }else{
-                console.log("Form Submitted Successfully");
-                
-            }
+        
+        
+        console.log(username,fullname,contact,dob,gender,usertype,height,weight,bloodgroup,criticalinfo,doctorlist)
 
+        User.create({
+            username,fullname,contact,dob,gender,usertype,height,weight,bloodgroup,criticalinfo,doctorlist
         })
+
+
+
 
         // Hash of password
         var salt= "sRALdWPM3jqJWqN97WW1";

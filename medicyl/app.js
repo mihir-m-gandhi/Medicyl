@@ -19,6 +19,9 @@ const add_doctor=require("./controllers/add_doctor");
 const profile=require("./controllers/profile");
 const signup_doctor=require("./controllers/signups_doctor");
 const upfile=require("./controllers/uploadMultipleFile");
+var User = require('./controllers/user_model');
+var Doctor = require('./controllers/doctor_model');
+
 
 // Contract variables
 const acc_abi=require("./contracts/accounts").acc_abi;
@@ -34,11 +37,6 @@ function(error){
         console.log("Connected to the database");
     }
 });
-
-
-
-
-
 
 
 // Start
@@ -118,17 +116,58 @@ app.post("/",async (req,res)=>{
         mypstr1.toString(16);
 
         console.log("Decryption of the private key: ",mypstr1);
+
+        var typesss="patient";
+        User.findOne({username:username},function(err,users){
+            console.log(err,users)
+            if (err){
+                console.log("Not found in User");
+        
+            }else{
+                console.log("SEARCH RESULTS");
+                console.log(users)
+                if (users != null){
+                    req.session.usertype=users.usertype;
+                    
+                    console.log("Session UserType", req.session.usertype);
+
+                }
+                 
+            }
+        });
+            
+            Doctor.findOne({username:username},function(err,doctors){
+                if (err){
+                    console.log("Not Found in Doctor");
+                }else{
+                    console.log("SEARCH Doctor RESULTS");
+                    console.log(doctors)
+                    typesss=doctors.usertype
+                    if (doctors != null){
+                        req.session.usertype=doctors.usertype;
+                        
+                        console.log("Session UserType", req.session.usertype);
+
+                    }
+                }
+            });
+
         req.session.username=username;
         req.session.secretKey=mypstr1;
-         
+        
         console.log("Session started");
-
-         return res.redirect("/dashboard");
+        
+        console.log("Session Out Username", req.session.username);
+        
+        return res.redirect("/dashboard");
 
 
     }else{
         res.render("index",{message:"Incorrect Password"});
     }
+
+
+
 
 
     
