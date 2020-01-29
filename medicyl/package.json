@@ -12,6 +12,7 @@
   "dependencies": {
     "bignumber.js": "^9.0.0",
     "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
     "connect-mongo": "^3.2.0",
     "crypto": "^1.0.1",
     "dotenv": "^7.0.0",
@@ -22,7 +23,9 @@
     "express": "^4.17.1",
     "express-session": "^1.15.6",
     "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
     "images-to-pdf": "^1.0.3",
+    "ipfs-api": "^26.1.2",
     "mongoose": "^5.8.10",
     "multer": "^1.4.2",
     "node-fetch": "^2.6.0",

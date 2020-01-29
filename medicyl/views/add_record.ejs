@@ -111,7 +111,7 @@ body {
             <div class="auth">
                 <div class="auth__body">
                     <div class="row">
-                            <form class="auth__form mt-5" autocomplete="off" method="POST">
+                            <form class="auth__form mt-5" enctype="multipart/form-data" method="POST">
                                     <div class="auth__form_body">
                                     <h3 class="auth__form_title">ADD HEALTH RECORD</h3>
                                     <!-- <p><%= message %></p> -->
@@ -119,16 +119,17 @@ body {
                                        <!-- <h6 class="auth__form_subtitle">Your Details</h6> -->
                                        <hr/>
                                         <div class="row">
+                                            
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label class="text-uppercase small">Name</label>
-                                                    <input name="first_name" type="text" disabled="true" class="form-control">
+                                                    <label class="text-uppercase small">Username</label>
+                                                    <input name="username" type="text" class="form-control" disabled="true" placeholder="Username">
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label class="text-uppercase small">DOB</label>
-                                                    <input name="last_name" type="date" disabled="true" class="form-control" >
+                                                    <label class="text-uppercase small">Full Name</label>
+                                                    <input name="fullname" type="text" disabled="true" class="form-control">
                                                 </div>
                                             </div>
                                         </div>
@@ -137,23 +138,25 @@ body {
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label class="text-uppercase small">Gender</label>
-                                                    <input name="last_name" type="text" class="form-control" value="Male" disabled="true">
+                                                    <input name="gender" type="text" class="form-control" value="Male" disabled="true">
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label class="text-uppercase small">Username</label>
-                                                    <input name="username" type="text" class="form-control" placeholder="Username" required="true">
+                                                    <label class="text-uppercase small">DOB</label>
+                                                    <input name="dob" type="date" disabled="true" class="form-control" >
                                                 </div>
                                             </div>
+                                            
     
                                         </div>
                                     </div>
                                     <div class="row">
+                        
                                         <div class="col">
                                             <div class="form-group">
-                                                <label class="text-uppercase small">Name</label>
-                                                <input name="first_name" type="text" disabled="true" class="form-control">
+                                                <label class="text-uppercase small">Document Name</label>
+                                                <input name="name" type="text" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col">
@@ -161,25 +164,62 @@ body {
                                                 <label class="text-uppercase small">Document Type</label>
                                                 <select class="form-control" name="type" required="true">
                                                     <option class="hidden"  selected disabled>Document Type</option>
-                                                    <option value="patient">Patient</option>
-                                                    <option value="doctor">Doctor</option>
-                                                    <option value="radiologist">Radiologist</option>
-                                                    <option value="researcher">Researcher</option>
-                                                    <option value="pharmacist">Pharmacist</option>
+                                                    <option value="patient">Blood Test</option>
+                                                    <option value="doctor">Urine Test</option>
+                                                    <option value="radiologist">X-Ray</option>
+                                                    <option value="researcher">MRI</option>
+                                                    <option value="pharmacist">Prescription</option>
                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="date">Date</label>
+                                                <input type="date" class="form-control" id="date" name="date" >
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <textarea class="form-control ml-3" placeholder="Enter Description of Report" rows="2" style="width:96%"></textarea>
-
+                                            <textarea class="form-control ml-3" name="description" placeholder="Enter Description of Document" rows="2" style="width:96%"></textarea>
                                         </div>
                                     </div>
-                                    
-                                    <br/>
-                                    
+                                    <br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="file-upload-wrapper">
+                                                <input type="file" id="input-file-now-custom-1" class="file-upload" name="myFiles" accept="image/*" multiple/>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <br><br>
+                                    <div class="auth__form_actions col-md-4 offset-md-4">
+                                    <button name="submit" class="btn btn-primary btn-md btn-block">
+                                        Add Record
+                                    </button>
+                                    </div>
+                                </form>
+                            </form>
+                            <br>
+<!--                                     
+                                    <form action="/uploadMultipleFile"  enctype="multipart/form-data" method="post">
+                                    
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="file-upload-wrapper">
+                                                    <input type="file" id="input-file-now-custom-1" class="file-upload" name="myFiles" accept="image/*" multiple/>
+                                                </div>
+                                            </div>
+                                            <div class="auth__form_actions col-md-4 offset-md-4">
+                                                <button name="submit" class="btn btn-primary btn-md">
+                                                    Upload
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form> -->
+    
+    
+    
                                     <!-- <h6 class="auth__form_subtitle">Spouse's Details</h6>
                                     <hr/>
                                     <div>
@@ -225,28 +265,9 @@ body {
                                             </div>
                                         </div>
                                     </div> -->
-                                    
-                                    <div class="auth__form_actions col-md-4 offset-md-4">
-                                    <button name="submit" class="btn btn-primary btn-lg btn-block">
-                                        Add
-                                    </button>
-                                    </div>
-                                </form>
 
-                                <form action="/uploadMultipleFile"  enctype="multipart/form-data" method="post">
-                                    
-                                    <div class="row">
-                                        <div class="col">
-                                        <div class="file-upload-wrapper">
-                                            <input type="file" id="input-file-now-custom-1" class="file-upload" name="myFiles" accept="image/*" multiple/>
-                                          </div>
-                                        </div>
-                                    </div>
-                                    <br/>
-                                    <button name="submit" class="btn btn-primary btn-lg btn-block">
-                                        Upload Docs
-                                    </button>
-                                </form>
+                                    <!-- ACCESS CONTROL LEFT -->
+                                  
                                 
                     </div>
                 </div>

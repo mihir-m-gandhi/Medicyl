@@ -1,11 +1,9 @@
 require("dotenv").config();
 
-
-
+const ipfsAPI = require('ipfs-api');
+const fs = require('fs');
 const express=require("express");
-
 const bodyParser = require('body-parser');
-
 const app=express();
 
 app.use(bodyParser.urlencoded({extended:true}))
@@ -17,6 +15,9 @@ const imagesToPdf = require("images-to-pdf")
 
 
 var fl_names=[];
+
+//Connceting to the ipfs network via infura gateway
+const ipfs = ipfsAPI('ipfs.infura.io', '5001', {protocol: 'https'})
 
 
 
@@ -42,6 +43,23 @@ module.exports = (app)=>{
         res.render("dashboard",{message:null});
     });
 
+
+    
+    // //Getting the uploaded file via hash code.
+    // app.get('/getfile', function(req, res) {
+        
+    //     //This hash is returned hash of addFile router.
+    //     const validCID = 'HASH_CODE'
+    
+    //     ipfs.files.get(validCID, function (err, files) {
+    //         files.forEach((file) => {
+    //           console.log(file.path)
+    //           console.log(file.content.toString('utf8'))
+    //         })
+    //       })
+    
+    // })
+
     app.post("/uploadMultipleFile",upload.array("myFiles",12),(req,res,next)=>{
         const files=req.files;
         if (!files){
@@ -49,15 +67,38 @@ module.exports = (app)=>{
             error.httpStstusCode = 400
             return next(error);
         }
-
+        var fl_string = "";
         files.forEach(element => {
-          var fl_string=  path.join(__dirname,'..','\\uploads\\',element['filename']);
+          fl_string=  path.join(__dirname,'..','//uploads//',element['filename']);
           console.log(fl_string);
           fl_names.push(fl_string);
         });
         // console.log("File Names after path join :",fl_names);
         
          up(fl_names);
+        //Reading file from computer
+        var exec = require('child_process').exec;
+        var cmd = 'qpdf --encrypt publickey publickey 40 -- ./uploads/combined.pdf ./uploads/encrypted.pdf';
+
+        exec(cmd, function (err){
+            if (err){
+                console.error('Error occured: ' + err);
+            }else{
+                console.log('PDF encrypted :)');
+            }
+        });
+        fl_string=  path.join(__dirname,'..','//uploads//encrypted.pdf');
+        let testFile = fs.readFileSync(fl_string);
+        //Creating buffer for ipfs function to add file to the system
+        let testBuffer = new Buffer(testFile);
+
+         ipfs.files.add(testBuffer, function (err, file) {
+            if (err) {
+              console.log(err);
+            }
+            console.log(file)
+            console.log("Mihir")
+          });
         return res.redirect("/dashboard");
         
         
@@ -68,7 +109,12 @@ module.exports = (app)=>{
 
 
 
-async function up(fl_names){
+function up(fl_names){
     console.log("in async");
-    await imagesToPdf(fl_names, path.join(__dirname,"..","uploads","combined.pdf"));
+    imagesToPdf(fl_names, path.join(__dirname,"..","uploads","combined.pdf"));
 }
+
+// fs.mkdirSync(path.join(__dirname,'..','downloads','username'));
+// await imagesToPdf(fl_names, path.join(__dirname,"..","downloads","username","combined.pdf"));
+    
+// fs.rmdirSync(path.join(__dirname,'..','uploads','username'));
