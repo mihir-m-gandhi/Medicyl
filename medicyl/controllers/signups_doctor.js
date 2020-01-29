@@ -17,27 +17,12 @@ const createIdentity = require("./create_identity");
 require("dotenv").config();
 
 
-const mongoose=require('mongoose');
+var mongoose = require('mongoose');
+var Doctor = require('./doctor_model.js');
 
 
-var userSchema = new mongoose.Schema({
-    username: String,
-    fullname: String,
-    contact: String,
-    dob: String,
-    age: String,
-    gender: String,
-    usertype: String,
-    height: String,
-    weight: String,
-    bloodgroup: String,
-    criticalinfo: String
-})
+module.exports = Doctor;
 
-
-var User = mongoose.model("User", userSchema);
-
-module.exports = User;
 
 
 module.exports=(app)=>{
@@ -49,38 +34,29 @@ module.exports=(app)=>{
 
 
     
-    app.post("/signup",(req,res)=>{
+    app.post("/signup_doctor",(req,res)=>{
 
         var full_name=req.body.full_name;
         var username=req.body.uname;
-        var dob=req.body.dob;
         var gender=req.body.gender;
         var pass=req.body.password;
         var cnf_pass=req.body.cnf_password;
         var contact=req.body.contact;
         var u_type=req.body.u_type;
-        
-
-        var today = new Date();
-
-        var birthDate = new Date(dob);
-
-        var age = today.getFullYear() - birthDate.getFullYear();
-        console.log(age);
+        var specialization =req.body.specialization;
+        var exp =req.body.exp;
+        var hospital =req.body.hospital;
 
         var identity = createIdentity();
         console.log(identity);
 
-        var height="";
-        var weight="";
-        var bloodgroup="";
-        var criticalinfo="";
+        var patientlist=[];
         
         const myData = {
-            username,full_name,contact,dob,age,gender,u_type,height,weight,bloodgroup,criticalinfo
+            username,full_name,contact,gender,u_type,specialization,exp,hospital,patientlist
         }
         
-        var data = User(myData);
+        var data = Doctor(myData);
 
         data.save(function(err){
             if (err){
