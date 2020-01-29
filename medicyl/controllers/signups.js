@@ -1,9 +1,13 @@
-// const ethCrypto=require('eth-crypto');
-// const fs=require("fs");
-// const HDwalletprovider=require("truffle-hdwallet-provider");
-// const Web3=require("web3");
-// const session=require("express-session");
-// const cookie=require("cookie-parser");
+const ethCrypto=require('eth-crypto');
+const fs=require("fs");
+const HDwalletprovider=require("truffle-hdwallet-provider");
+const Web3=require("web3");
+const session=require("express-session");
+
+const createIdentity = require("./create_identity");
+
+
+
 
 // const abi=require("../family_tree_details").abi;
 // const address=require("../family_tree_details").address;
@@ -12,123 +16,87 @@
 
 require("dotenv").config();
 
+
+const mongoose=require('mongoose');
+
+
+var userSchema = new mongoose.Schema({
+    username: String,
+    fullname: String,
+    contact: String,
+    dob: String,
+    age: String,
+    gender: String,
+    usertype: String,
+    height: String,
+    weight: String,
+    bloodgroup: String,
+    criticalinfo: String
+})
+
+
+var User = mongoose.model("User", userSchema);
+
+
+
 module.exports=(app)=>{
 
     app.get("/signup",(req,res)=>{
         res.render("signup",{message:null});
+        
     });
+
+
+    
+    app.post("/signup",(req,res)=>{
+
+        var full_name=req.body.full_name;
+        var username=req.body.uname;
+        var dob=req.body.dob;
+        var gender=req.body.gender;
+        var pass=req.body.password;
+        var cnf_pass=req.body.cnf_password;
+        var contact=req.body.contact;
+        var u_type=req.body.u_type;
+        
+
+        var today = new Date();
+
+        var birthDate = new Date(dob);
+
+        var age = today.getFullYear() - birthDate.getFullYear();
+        console.log(age);
+
+        var identity = createIdentity();
+        console.log(identity);
+
+        var height="";
+        var weight="";
+        var bloodgroup="";
+        var criticalinfo="";
+        
+        const myData = {
+            username,full_name,contact,dob,age,gender,u_type,height,weight,bloodgroup,criticalinfo
+        }
+
+         
+        var data = User(myData);
+
+        data.save(function(err){
+            if (err){
+                console.log("Error in submission");
+            }else{
+                console.log("Form Submitted Successfully");
+                return res.redirect("/dashboard")
+            }
+
+        })
+        
+    });
+
+
+
 }
 
-//     app.post("/signup",async (req,res)=>{
-//         var first_name=req.body.first_name;
-//         var last_name=req.body.last_name;
-//         var dob=req.body.dob;
-   
-//         var gender=req.body.gender;
-//         if(gender==="male"){
-//             gender=0
-//         }else{
-//             gender=1
-//         }
-//         var first_name1=req.body.first_name1;
-//         var last_name1=req.body.last_name1;
-//         var dob1=req.body.dob1;
-//         var gender1=req.body.gender1;
-
-//         if(gender1==="male"){
-//             gender1=0
-//         }else{
-//             gender1=1
-//         }
-//         console.log(first_name1,last_name1,dob1,gender1);
-//         console.log(first_name,last_name,dob,gender);
-
-//         var marraigeStatus=0;
-
-//         // Creating identity
-//         var identity=createIdentity();
-
-//         console.log(identity);
-//         var newPublicKey=identity.publicKey;
-//         var newCompressed=ethCrypto.publicKey.compress(
-//             newPublicKey
-//         );
-//         identity.compressed=newCompressed;
-//         // Setting provider and web3
-//         const provider=new HDwalletprovider(
-//             process.env.PRIVATE_KEY,
-//             process.env.ROPSTEN_INFURA
-//         );
-//         const web3=new Web3(provider);
-//         console.log("provider set");
-//         // Deploying smart contract
-//         var contract=await new web3.eth.Contract(abi).deploy({data:byteCode,arguments:[newCompressed,first_name,last_name,dob,gender,marraigeStatus]}).send({
-//             from:"0x2248d96D13198CC52274f30F029C241c87b5a23c",
-//             gas:'4700000'
-//         });
-//         console.log("deployed")
-//         //getting address of deployed smart contracts
-//         var contractAddress=contract.options.address;
-        
-//         //Adding wife
-//         var identity1 = createIdentity();
-//         var newPublicKey1=identity1.publicKey;
-//         var newCompressed1=ethCrypto.publicKey.compress(
-//             newPublicKey1
-//         );
-//         identity1.compressed=newCompressed1;
-
-//         var addspouse=await contract.methods.addFamilyMember(newCompressed1,first_name1,last_name1,dob1,gender1,marraigeStatus).send({
-//             from:"0x2248d96D13198CC52274f30F029C241c87b5a23c"
-//         });
-//         console.log(addspouse);
-//         var marraige= await contract.methods.mairrage(newCompressed1,newCompressed).send({
-//             from:"0x2248d96D13198CC52274f30F029C241c87b5a23c",
-//             gas:'4700000'
-//         });
-//         console.log("marraige Done")
-    
-//         // Setting up sessions
-//         req.session.identity=identity;
-//         req.session.contractAddress=contractAddress;
-        
-//         console.log(req.session);
-        
 
 
-//         //writing to a file
-//         var path=__dirname+"/"+identity.compressed+".txt";
-        
-//         var data={
-//             identity1:identity,
-//             identity2:identity1,
-//             familyAddress:contractAddress
-            
-//         };
-    
-//         fs.writeFileSync(path,JSON.stringify(data),'utf8',(err)=>{
-//             console.log(err);
-//         });
-
-
-//         // download file
-//         // res.setHeader('Content-disposition', 'attachment; filename=' + identity.address+".txt");
-//         res.download(path,identity.compressed+'.txt',(err)=>{
-//             if(err){
-//                 console.log(err);
-//             }else{
-                
-//             }
-//         });
-
-// });
-
-//     app.get("/logout",(req,res)=>{
-//         req.session.destroy((err)=>{
-//             if(err){
-//                 console.log(err);
-//             }        
-//         });
-//         res.redirect("/");
-//     });
-// }
