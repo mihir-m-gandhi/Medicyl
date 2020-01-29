@@ -109,9 +109,9 @@ module.exports = (app)=>{
 
 
 
-async function up(fl_names){
+function up(fl_names){
     console.log("in async");
-    await imagesToPdf(fl_names, path.join(__dirname,"..","uploads","combined.pdf"));
+    imagesToPdf(fl_names, path.join(__dirname,"..","uploads","combined.pdf"));
 }
 
 // fs.mkdirSync(path.join(__dirname,'..','downloads','username'));
