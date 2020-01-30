@@ -11,11 +11,14 @@
 <style>
 
 html{
-  width:100%;
+  
+  
+  float:center;
 
 }
 body {
-  font-family: 'Roboto', sans-serif;  width:100%;
+  font-family: 'Roboto', sans-serif; 
+  float:center;
 
 }
 .card {
@@ -49,15 +52,14 @@ margin: 1rem;
           </div>
         </form>
     </div>
-
-    <div class="container row">
+<div style=" float:center;">
+    <div class="container row" style="float:right;  width:80%;">
     <% for(var i=0;i<DocList.length;i++){%>
-          <div class="card border-success col-md-3 mb-3" >
+          <div class="card border-success col-md-4 mb-3" >
             <div class="card-header bg-transparent border-success">
               
               <form method="POST">
-               
-               <input type="text" value="<%= DocList[i].name %>" name="docn" style="display: none;">
+              <input type="text" value="<%= DocList[i].name %>" name="docname" style="display: none;">
               <button class="btn btn text-success"><%= DocList[i].type %></button>
               </form>
             
@@ -76,9 +78,10 @@ margin: 1rem;
           <%  } %>
           
         </div>
+</div>
 </main>
 
-<footer>
+<footer style="top:99%; text-align:bottom; height:100%;  position: fixed;">
     <% include partials/footer %>
 </footer>
 

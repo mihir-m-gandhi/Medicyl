@@ -10,6 +10,9 @@ const right_address=require("../contracts/rights").right_address;
 const ipfsAPI = require('ipfs-api');
 const ipfs = ipfsAPI('ipfs.infura.io', '5001', {protocol: 'https'})
 const https = require('https');
+
+const path = require('path');
+
 module.exports=(app)=>{
 
     app.get("/dashboard",(req,res)=>{
@@ -82,17 +85,17 @@ module.exports=(app)=>{
         });
         
         var exec = require('child_process').exec;
-        var cmd = 'qpdf --decrypt --password=publickey ./uploads/encrypted.pdf ./uploads/decrypted.pdf';
-        exec(cmd, function (err){
-            if (err){
-                console.error('Error occured: ' + err);
-            }else{
-                console.log('PDF dencrypted :)');
-            }
-        });
+        // var cmd = 'qpdf --decrypt --password=publickey ./uploads/encrypted.pdf ./uploads/decrypted.pdf';
+        // exec(cmd, function (err){
+        //     if (err){
+        //         console.error('Error occured: ' + err);
+        //     }else{
+        //         console.log('PDF dencrypted :)');
+        //     }
+        // });
         console.log("Decrypted",ipfshash)
-        fs.rmdirSync(path.join(__dirname,"..","uploads"));
-        fs.mkdir(path.join(__dirname,"..","uploads"));
+        // fs.rmdirSync(path.join(__dirname,"..","uploads"));
+        // fs.mkdir(path.join(__dirname,"..","uploads"));
         return res.render("pdf2",{message:"Successful",docn:docn,ipfshash:ipfshash,right:right});
 
     })

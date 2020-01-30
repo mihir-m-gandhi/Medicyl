@@ -139,17 +139,12 @@ table{
                                         
                                         <div class="col">
                                             <div class="form-group">
-                                                <label class="text-uppercase small">Document Name</label>
+                                                <h3><%= docn%></h3>
                                             
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <textarea class="form-control ml-3" placeholder="Description of Report" rows="2" style="width:96%"></textarea>
-
-                                        </div>
-                                    </div>
+                                    
                                     
                                     <br/>
                                     <!-- import React from 'react'
@@ -170,8 +165,9 @@ export default ExamplePDFViewer -->
 
 
 
-
-                                    <iframe src="<%= ipfshash %>"</iframe>width="100%" height="750px"></iframe>
+                                    <div class="container" style="width:80%;height:60%">
+                                        <iframe src="<%= ipfshash %>" width="100%" height="100%"></iframe>
+                                    </div>
                                     <form>
                                     <br><br>
                                     <h3 class="auth__form_title">Access Control</h3>
@@ -187,7 +183,7 @@ export default ExamplePDFViewer -->
                                       <tr>
                                         <td><input type="checkbox" name="sample[]"/></td>
                                         <td>patient1</td>
-                                        <td><input type="" name="optradio1" ></td>
+                                        <th><input type="radio" name="optradio2" ></th>
                                         <td><input type="radio" name="optradio1" ></td>
                                       </tr>
                                       <tr>
