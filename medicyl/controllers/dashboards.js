@@ -32,7 +32,6 @@ module.exports=(app)=>{
        
         
     });
-<<<<<<< HEAD
 
 
     app.post("/dashboard",async (req,res)=>{
@@ -76,7 +75,4 @@ module.exports=(app)=>{
 
 
 
-=======
-    
->>>>>>> 207d3016953773896387598f1215d93152bf9766
 }
