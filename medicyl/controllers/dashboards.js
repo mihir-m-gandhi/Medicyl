@@ -62,12 +62,21 @@ module.exports=(app)=>{
                 console.log(policy);
                 console.log(policy.docname);
                 if(policy.docname.match(docname)){
+                    if (policy.rights.match('revoke')){
+                        break;
+                    }
                     ipfshash = policy.doc;
                     right = policy.rights;
-                    console.log(ipfshash,right);
+                    console.log(ipfshash,right);      
+                    // return res.render("pdf2",{message:[docname,ipfshash,right]});
                     break;
                 }
             }
+        
+        
+        
+        var exec = require('child_process').exec;
+        var cmd = 'qpdf --decrypt publickey publickey 40 -- ./uploads/combined.pdf ./uploads/encrypted.pdf';
 
         return res.render("pdf2",{message:[docname,ipfshash,right]});
 

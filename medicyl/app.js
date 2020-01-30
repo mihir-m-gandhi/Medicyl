@@ -46,10 +46,9 @@ const app=express();
 app.set('view engine','ejs');
 
 app.use(session({
-    key:"user_sid",
-    secret:"mihirpriyamvishalmihirkrutiali",
-    resave:false,
-    saveUninitialized: false,
+    secret:"secret",
+    resave:true,
+    saveUninitialized: true,
 }));
 
 app.use(express.static('./public'));

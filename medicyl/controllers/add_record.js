@@ -8,6 +8,13 @@ const session=require("express-session");
 const bodyParser = require('body-parser');
 const app=express();
 
+const HDwalletprovider=require("truffle-hdwallet-provider");
+const Web3=require("web3");
+const right_abi=require("../contracts/rights").right_abi;
+const right_address=require("../contracts/rights").right_address;
+
+
+
 app.use(bodyParser.urlencoded({extended:true}))
 
 const multer=require('multer');
@@ -49,7 +56,7 @@ module.exports = (app)=>{
 
 
 
-    app.post("/addrecord",upload.array("myFiles",12),(req,res,next)=>{
+    app.post("/addrecord",upload.array("myFiles",12),async (req,res,next)=>{
         const files=req.files;
         if (!files){
             const error= new Error("Please Choose Files");
@@ -86,6 +93,7 @@ module.exports = (app)=>{
               console.log(err);
             }
             else{
+            console.log("in else");
             var name=req.body.name;
             var username=req.session.username;
             var type=req.body.type;
@@ -103,15 +111,39 @@ module.exports = (app)=>{
                     console.log("Error in submission");
                 }else{
                     console.log("Form Submitted Successfully");
-                    return res.redirect("/dashboard")
+                    // return res.redirect("/dashboard")
                 }
 
             })
             console.log(file)
-            console.log("Mihir")
+
+            const provider = new HDwalletprovider(
+                process.env.PRIVATE_KEY,
+                process.env.ROPSTEN_INFURA
+            );
+
+
+             
+            const web3=new Web3(provider);
+    
+            if (web3.currentProvider !== 'undefined'){
+                console.log("Provider is set");
+            }
+            
+            const contract=new web3.eth.Contract(right_abi,right_address);
+            contract.methods.AddPolicy(req.session.username,(file[0].hash),name,"owner").send({
+                    from:"0x1793A52C3B7b555f37628a0A03E5239d79353823"
+                });
+            
+                setTimeout(function(){
+                    console.log("sleeping for 3sec")
+                },3000);
+            return res.redirect("/dashboard")
+
+
             }
           });
-        //return res.redirect("/dashboard");
+        ;
         
         
     
