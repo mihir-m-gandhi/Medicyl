@@ -54,7 +54,13 @@ margin: 1rem;
     <% for(var i=0;i<DocList.length;i++){%>
           <div class="card border-success col-md-4 mb-3" >
             <div class="card-header bg-transparent border-success">
-              <%= DocList[i].type %>
+              
+              <form method="POST">
+               
+               <input type="text" value="<%= DocList[i].name %>" name="docname" style="display: none;">
+              <button class="btn btn text-success"><%= DocList[i].type %></button>
+              </form>
+            
             </div>
             <div class="card-body text-success">
               <h5 class="card-title"><%= DocList[i].name %></h5>
