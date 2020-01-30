@@ -1,0 +1,79 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <% include partials/head %>
+
+  <title>Patient Search | Medicyl</title>
+
+<style>
+
+html{
+  width:100%;
+
+}
+body {
+  font-family: 'Roboto', sans-serif;  width:100%;
+
+}
+.card {
+padding: 1rem;
+border: 1px solid black;
+margin: 1rem;
+}
+</style>
+
+<header>
+    <% include partials/header %>
+</header>
+
+
+
+
+
+
+</head>
+<main>
+  
+<body>
+    <div class="jumbotron" style="background: -webkit-linear-gradient(left, #3931af, #00c6ff);">
+        <h1 class=" text-light" style="text-align:center">Search Patient Records</h1>
+        <br>
+        <form class="justify-content-center my-2 my-lg-0">
+          <input class="form-control mr-sm-2 center" type="search" placeholder="Search Patient Record" aria-label="Search">
+          <br>
+          <div class="text-center"> 
+          <button class="btn btn-outline-light my-2 my-sm-0"  type="submit">Search</button>
+          </div>
+        </form>
+    </div>
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+      <div class="card-header bg-transparent border-success">
+        Patient ID
+      </div>
+      <div class="card-body text-success">
+        <h5 class="card-title">Patient Name</h5>
+        <p class="card-text"><ul>
+            <li>Age</li>
+            <li>Gender</li>
+            <li>Contact</li>
+
+          </ul></p>
+      </div>
+    
+      <div class="card-footer bg-transparent border-success">
+        Date:29/01/2020
+      </div>
+    </div>
+    
+    
+</main>
+
+<footer>
+    <% include partials/footer %>
+</footer>
+
+</body>
+</html>

@@ -21,8 +21,8 @@ const signup_doctor=require("./controllers/signups_doctor");
 const upfile=require("./controllers/uploadMultipleFile");
 var User = require('./controllers/user_model');
 var Doctor = require('./controllers/doctor_model');
-
-
+var doctor_patient = require('./controllers/doctor_patient');
+var doctor_doc = require('./controllers/doctor_doc');
 // Contract variables
 const acc_abi=require("./contracts/accounts").acc_abi;
 const acc_address=require("./contracts/accounts").acc_address;
@@ -185,3 +185,5 @@ add_doctor(app);
 profile(app);
 upfile(app);
 signup_doctor(app);
+doctor_patient(app);
+doctor_doc(app);
