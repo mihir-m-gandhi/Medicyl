@@ -3,23 +3,15 @@
 <head>
 
     <% include partials/head %>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
   
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
-    $(document).ready( function () {
-    $('#doctors_table').DataTable();
-}
-);
+
 </script>
 
-<title>Your Doctors</title>
-
-<!-- <meta http-equiv="Content-Security-Policy" content="font-src 'self' data:; img-src 'self' data:; default-src 'self' http://127.0.0.1:3000/"> -->
+<title>Your Doctors</title>>
 
 
 <style>
-    @import url('https://fonts.googleapis.com/css?family=Roboto');
 html{
   width:100%;
   height:100%;
@@ -69,7 +61,7 @@ body {
 .auth__form_title {
   font-size: 1.3rem;
   text-align: center;
-  color:#584dc3;
+  color:#FFF;
   font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 1.2rem;
@@ -116,43 +108,7 @@ body {
             <div class="auth">
                 <div class="auth__body">
                     <div class="row">
-                            <form class="auth__form mt-5" autocomplete="off" method="POST">
-                                    <div class="auth__form_body">
-                                    <h3 class="auth__form_title">YOUR DOCTORS</h3>
-                                    <table id="doctors_table" class="display" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Specialization</th>
-                                                <th>Hospital</th>
-                                                <th>Contact No.</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- <tr>
-                                                <td>Dr. Tiger Nixon</td>
-                                                <td>General Physicist</td>
-                                                <td>Fortis, Vashi</td>
-                                                <td>123456789</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Dr. Garrett Winters</td>
-                                                <td>Skin Specialist</td>
-                                                <td>Leelavati</td>
-                                                <td>087654321</td>
-                                            </tr> -->
-                                        <% for(var i=0;i<userList.length;i++){
-                                            if(i<2){ %>
-                                            <tr>
-                                                <td><%= userList[i].username %></td>
-                                                <td><%= userList[i].username %></td>
-                                                <td><%= userList[i].username %></td>
-                                                <td><%= userList[i].username %></td>
-                                            </tr>
-                                        <% } } %>
-                                        </tbody>
-                                    </table>
-                                    <br><br>
+                            <form class="auth__form mt-5" autocomplete="off">
                                     <h3 class="auth__form_title">ADD DOCTOR</h3>
                                     <div>
                                        <hr/>
@@ -160,11 +116,11 @@ body {
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label class="text-uppercase small">Search for Doctor</label>
-                                                    <input name="search_doctor" type="text" value="Enter username of doctor" class="form-control" onclick="this.value=''">
+                                                    <input id="search_key" name="search_doctor" type="text" value="Enter username of doctor" class="form-control" onclick="this.value=''">
                                                 </div>
                                             </div>
                                             <div class="auth__form_actions">
-                                                <button name="submit" class="btn btn-primary btn-lg btn-block">
+                                                <button name="submit" class="btn btn-primary btn-lg btn-block" onClick="search()">
                                                     Search
                                                 </button>
                                             </div>
@@ -194,7 +150,7 @@ body {
                                             </div>
                                         </div> 
                                         <div>
-                                            <button class="btn btn-outline-success">ADD</button>
+                                            <button class="btn btn-outline-success" >ADD</button>
                                             <button class="btn btn-outline-danger ml-5">RESET</button>
                                         </div>                    
                                 </form>  
@@ -206,6 +162,21 @@ body {
     </section>
 </body>
 <script text="javascript">
-    
+    function search(){
+    console.log( document.getElementById("search_key").value);
+    var searchkey = document.getElementById("search_key").value
+    $.ajax({
+        url: "/adddoctor",
+        type: "GET",
+        data: {'username': searchkey}, //send this to server
+        success: function(returned) {
+            console.log(returned);
+        },
+        error: function(e) {
+            console.log("error",e)
+        }
+    });
+}
+
 </script>
 </html>

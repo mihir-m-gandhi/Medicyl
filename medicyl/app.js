@@ -128,8 +128,8 @@ app.post("/",async (req,res)=>{
                 console.log(users)
                 if (users != null){
                     req.session.usertype=users.usertype;
-                    
-                    console.log("Session UserType", req.session.usertype);
+                    req.session.doctorlist=users.doctorlist;
+                    console.log("doctor list",req.session.doctorlist);
 
                 }
                  
@@ -141,7 +141,7 @@ app.post("/",async (req,res)=>{
                     console.log("Not Found in Doctor");
                 }else{
                     console.log("SEARCH Doctor RESULTS");
-                    console.log(doctors)
+                    //console.log(doctors)
                     if (doctors != null){
                         req.session.usertype=doctors.usertype;
                         
