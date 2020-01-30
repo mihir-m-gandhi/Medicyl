@@ -4,12 +4,12 @@ const HDwalletprovider=require("truffle-hdwallet-provider");
 const Web3=require("web3");
 var Document = require("./document_model");
 const session=require("express-session");
-
+const fs = require('fs');
 const right_abi=require("../contracts/rights").right_abi;
 const right_address=require("../contracts/rights").right_address;
-
-
-
+const ipfsAPI = require('ipfs-api');
+const ipfs = ipfsAPI('ipfs.infura.io', '5001', {protocol: 'https'})
+const https = require('https');
 module.exports=(app)=>{
 
     app.get("/dashboard",(req,res)=>{
@@ -35,7 +35,7 @@ module.exports=(app)=>{
 
 
     app.post("/dashboard",async (req,res)=>{
-        var docname=req.body.docname;
+        var docn=req.body.docn;
 
              // Web3 provider setup
             const provider = new HDwalletprovider(
@@ -61,11 +61,12 @@ module.exports=(app)=>{
                 const policy= await contract.methods.policy(req.session.username,i).call();
                 console.log(policy);
                 console.log(policy.docname);
-                if(policy.docname.match(docname)){
+                if(policy.doc.match(docn)){
                     if (policy.rights.match('revoke')){
                         break;
                     }
-                    ipfshash = policy.doc;
+                    ipfshash ="https://ipfs.io/ipfs/"+ policy.docname;
+                    console.log("Here", ipfshash)
                     right = policy.rights;
                     console.log(ipfshash,right);      
                     // return res.render("pdf2",{message:[docname,ipfshash,right]});
@@ -73,12 +74,24 @@ module.exports=(app)=>{
                 }
             }
         
+        //This hash is returned hash of addFile router.
+        const file = fs.createWriteStream("./uploads/downloaded.pdf");
         
+        const request = https.get(ipfshash, function(response) {
+          response.pipe(file);
+        });
         
         var exec = require('child_process').exec;
-        var cmd = 'qpdf --decrypt publickey publickey 40 -- ./uploads/combined.pdf ./uploads/encrypted.pdf';
-
-        return res.render("pdf2",{message:[docname,ipfshash,right]});
+        var cmd = 'qpdf --decrypt --password=publickey ./uploads/downloaded.pdf ./uploads/decrypted.pdf';
+        exec(cmd, function (err){
+            if (err){
+                console.error('Error occured: ' + err);
+            }else{
+                console.log('PDF dencrypted :)');
+            }
+        });
+        console.log("Decrypted")
+        return res.render("pdf2",{message:[docn,right]});
 
     })
 
