@@ -82,7 +82,7 @@ module.exports=(app)=>{
         });
         
         var exec = require('child_process').exec;
-        var cmd = 'qpdf --decrypt --password=publickey ./uploads/downloaded.pdf ./uploads/decrypted.pdf';
+        var cmd = 'qpdf --decrypt --password=publickey ./uploads/encrypted.pdf ./uploads/decrypted.pdf';
         exec(cmd, function (err){
             if (err){
                 console.error('Error occured: ' + err);
@@ -90,8 +90,10 @@ module.exports=(app)=>{
                 console.log('PDF dencrypted :)');
             }
         });
-        console.log("Decrypted")
-        return res.render("pdf2",{message:[docn,right]});
+        console.log("Decrypted",ipfshash)
+        fs.rmdirSync(path.join(__dirname,"..","uploads"));
+        fs.mkdir(path.join(__dirname,"..","uploads"));
+        return res.render("pdf2",{message:"Successful",docn:docn,ipfshash:ipfshash,right:right});
 
     })
 

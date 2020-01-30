@@ -171,8 +171,7 @@ export default ExamplePDFViewer -->
 
 
 
-                                    <iframe src="../uploads/decrypted.pdf" width="100%" height="750px">
-                                                                                        </iframe>
+                                    <iframe src="<%= ipfshash %>"</iframe>width="100%" height="750px"></iframe>
                                     <form>
                                     <br><br>
                                     <h3 class="auth__form_title">Access Control</h3>
@@ -187,21 +186,15 @@ export default ExamplePDFViewer -->
 
                                       <tr>
                                         <td><input type="checkbox" name="sample[]"/></td>
-                                        <td>Username 1</td>
-                                        <td><input type="radio" name="optradio1" ></td>
+                                        <td>patient1</td>
+                                        <td><input type="" name="optradio1" ></td>
                                         <td><input type="radio" name="optradio1" ></td>
                                       </tr>
                                       <tr>
                                         <th><input type="checkbox" name="sample[]"/></th>
-                                        <td>Username 2</td> 
+                                        <td>doctor1</td> 
                                         <th><input type="radio" name="optradio2" ></th>
                                         <th><input type="radio" name="optradio2" ></th>
-                                      </tr>
-                                      <tr>
-                                        <td><input type="checkbox" name="sample[]"/></td>
-                                        <td>Username 3</td>
-                                        <td><input type="radio" name="optradio3" ></td>
-                                        <td><input type="radio" name="optradio3" ></td>
                                       </tr>
                                       </div></form>
                                   </table>

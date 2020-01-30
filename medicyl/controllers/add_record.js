@@ -83,6 +83,9 @@ module.exports = (app)=>{
                 console.log('PDF encrypted :)');
             }
         });
+        setTimeout(function(){
+            console.log("waiting file uploading")
+        },3000);
         fl_string=  path.join(__dirname,'..','//uploads//encrypted.pdf');
         let testFile = fs.readFileSync(fl_string);
         //Creating buffer for ipfs function to add file to the system
@@ -137,7 +140,7 @@ module.exports = (app)=>{
             
                 setTimeout(function(){
                     console.log("sleeping for 3sec")
-                },3000);
+                },300);
             return res.redirect("/dashboard")
 
 
