@@ -36,13 +36,13 @@ A mapping of the challenges faced by the traditional system and the features imp
 
 * [Flow Diagrams](./assets/flows.pdf) with screenshots and features:
   
-  * `Patient` 
+  <h2 align="center">Patient</h2>
   <p align="center">
     <a href="" rel="noopener">
    <img height=400px src="./assets/patient.png" alt="Patient-Flow-Diagram"></a>
   </p>
   
-  * `Doctor`
+  <h2 align="center">Patient</h2>
   <p align="center">
     <a href="" rel="noopener">
    <img height=400px src="./assets/doctor.png" alt="Doctor-Flow-Diagram"></a>
