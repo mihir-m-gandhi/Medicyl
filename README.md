@@ -26,7 +26,7 @@ A mapping of the challenges faced by the traditional system and the features imp
 
 <p align="center">
   <a href="" rel="noopener">
- <img height=300px src="./assets/features.png" alt="Features"></a>
+ <img height=350px src="./assets/features.png" alt="Features"></a>
 </p>
 
 ------------------------------------------
