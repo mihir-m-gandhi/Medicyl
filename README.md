@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img height=200px src="./assets/logocc.png" alt="Medicyl-logo"></a>
+ <img height=100px src="./assets/logocc.png" alt="Medicyl-logo"></a>
 </p>
 
 <h1 align="center">Medicyl</h1>
