@@ -8,7 +8,7 @@
   
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-<h4>Medicyl is a blockchain-based <strong>Decentralized Medical Record Management System</strong>. The system focuses on storing the parients' electronic health records efficiently and securely, thus providing the people better access and control of their records, and enabling easy and secure sharing of the records with doctos, hospitals, or insurance companies.</h4>
+<h4>Medicyl is a blockchain-based <strong>Decentralized Health Record Management System</strong>. The system focuses on storing the patients' electronic health records efficiently and securely, thus providing the people better access and control of their records, and enabling easy and secure sharing of the records with doctors, hospitals, or insurance companies.</h4>
 
 </div>
 
@@ -22,7 +22,7 @@
 ------------------------------------------
 ### Features
 
-A mapping of the challenges faced by the traditional system and the features implemented in Medicyl to solve these challenges can be seen in the image bellow. 
+A mapping of the challenges faced by the traditional system and the features implemented in Medicyl to solve these challenges can be seen in the image below. 
 
 <p align="center">
   <a href="" rel="noopener">
@@ -32,7 +32,7 @@ A mapping of the challenges faced by the traditional system and the features imp
 ------------------------------------------
 ### Demo
 
-* View a detailed demonstration of Medicyl [here]().
+* View a detailed demonstration of Medicyl [here](https://youtu.be/kDrJEgj7FdY).
 
 * [Flow Diagrams](./assets/flows.pdf) with screenshots and features:
   
