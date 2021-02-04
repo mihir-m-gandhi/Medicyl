@@ -67,7 +67,7 @@ A mapping of the challenges faced by the traditional system and the features imp
 ```
 
 ------------------------------------------
-### Authors
+### Contributors
 
 Mihir Gandhi - [mihir-m-gandhi](https://github.com/mihir-m-gandhi)
 
