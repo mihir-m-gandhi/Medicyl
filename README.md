@@ -26,7 +26,7 @@ A mapping of the challenges faced by the traditional system and the features imp
 
 <p align="center">
   <a href="" rel="noopener">
- <img height=200px src="./assets/features.png" alt="Features"></a>
+ <img height=300px src="./assets/features.png" alt="Features"></a>
 </p>
 
 ------------------------------------------
@@ -39,13 +39,13 @@ A mapping of the challenges faced by the traditional system and the features imp
   * `Patient` 
   <p align="center">
     <a href="" rel="noopener">
-   <img height=300px src="./assets/patient.png" alt="Patient-Flow-Diagram"></a>
+   <img height=400px src="./assets/patient.png" alt="Patient-Flow-Diagram"></a>
   </p>
   
   * `Doctor`
   <p align="center">
     <a href="" rel="noopener">
-   <img height=300px src="./assets/doctor.png" alt="Doctor-Flow-Diagram"></a>
+   <img height=400px src="./assets/doctor.png" alt="Doctor-Flow-Diagram"></a>
   </p>
 
 ------------------------------------------
