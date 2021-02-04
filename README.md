@@ -5,9 +5,11 @@
 <h1 align="center">Medicyl</h1>
 
 <div align="center">
+  
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 <h4>Medicyl is a blockchain-based <strong>Decentralized Medical Record Management System</strong>. The system focuses on storing the parients' electronic health records efficiently and securely, thus providing the people better access and control of their records, and enabling easy and secure sharing of the records with doctos, hospitals, or insurance companies.</h4>
+
 </div>
 
 -----------------------------------------
