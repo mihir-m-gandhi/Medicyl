@@ -67,6 +67,10 @@ A mapping of the challenges faced by the traditional system and the features imp
 ```
 
 ------------------------------------------
+### Note
+- This project was done in less than `24 hours with minimal pre-preparation` at institute-level round of Smart India Hackathon 2020.
+
+------------------------------------------
 ### Contributors
 
 Mihir Gandhi - [mihir-m-gandhi](https://github.com/mihir-m-gandhi)
