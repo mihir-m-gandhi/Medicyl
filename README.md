@@ -1,6 +1,5 @@
 <p align="center">
-  <a href="" rel="noopener">
- <img height=100px src="./assets/logocc.png" alt="Medicyl-logo"></a>
+ <img height=100px src="./assets/logocc.png" alt="Medicyl-logo">
 </p>
 <h1 align="center">Medicyl</h1>
 
@@ -25,8 +24,7 @@
 A mapping of the challenges faced by the traditional system and the features implemented in Medicyl to solve these challenges can be seen in the image below. 
 
 <p align="center">
-  <a href="" rel="noopener">
- <img height=350px src="./assets/features.png" alt="Features"></a>
+ <img height=350px src="./assets/features.png" alt="Features">
 </p>
 
 ------------------------------------------
@@ -38,14 +36,12 @@ A mapping of the challenges faced by the traditional system and the features imp
   
   <h2 align="center">Patient</h2>
   <p align="center">
-    <a href="" rel="noopener">
-   <img height=400px src="./assets/patient.png" alt="Patient-Flow-Diagram"></a>
+   <img height=400px src="./assets/patient.png" alt="Patient-Flow-Diagram">
   </p>
   <br>
   <h2 align="center">Doctor</h2>
   <p align="center">
-    <a href="" rel="noopener">
-   <img height=400px src="./assets/doctor.png" alt="Doctor-Flow-Diagram"></a>
+   <img height=400px src="./assets/doctor.png" alt="Doctor-Flow-Diagram">
   </p>
 
 ------------------------------------------
